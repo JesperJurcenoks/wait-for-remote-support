@@ -71,10 +71,12 @@ Adapt the hardcoded server path to your own server name and path
 place a file with connection information for each host where you are offering remote support, make sure each host has a unique name.
 
 ==========file contents============
+```
 username=[username on the bouncing ssh host]
 host=[dnsname/IP address of the ssh host where you are bouncing the ssh connection through]
 port=[unique port for each host]
 remoteusername=[name used to login on the host that needs support]
+```
 ===========end of file=============
 
 Note: The script supports both Unix AND Windows style newlines in this file
