@@ -27,7 +27,7 @@ echo "Kill any old tunnel so that we are connecting to the right port"
 echo "and don't overload dreamhost with too many SSH connections as"
 echo "dreamhost has a tendency to kill ssh sessions if they think"
 echo " SSH sessions are taking too many CPU cycles"
-kill $(pgrep -f "ssh -fN -R")
+#kill $(pgrep -f "ssh -fN -R")
 
 HOSTNAME="`cat /etc/hostname`"
 URL="http://support.neighborhoodguard.org/remote-support/"$HOSTNAME"-remote-support"
@@ -40,5 +40,5 @@ echo "username '"$USERNAME"'"
 echo "hostname '"$HOSTNAME"'"
 echo "port '"$SUPPORTPORT"'"
 
-ssh -fN -R $SUPPORTPORT:localhost:22 $USERNAME@$HOSTNAME
+autossh -fN -i ~/.ssh/tunnel_rsa -R $SUPPORTPORT:localhost:22 $USERNAME@$HOSTNAME
 
